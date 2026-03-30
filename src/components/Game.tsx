@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from 'motion/react'
 import { useEffect, useRef } from 'react'
 import { useGameStore } from '@/store/gameStore'
+import { usePostMessage } from '@/hooks/usePostMessage'
 import { IdleScreen } from '@/components/screens/IdleScreen'
 import { PlayScreen } from '@/components/screens/PlayScreen'
 import { ResultScreen } from '@/components/screens/ResultScreen'
@@ -13,6 +14,9 @@ export default function Game() {
   const phase = useGameStore((s) => s.phase)
   const lastOutcome = useGameStore((s) => s.lastOutcome)
   const advance = useGameStore((s) => s.advance)
+
+  // Wire bidirectional postMessage for iframe embedding (Phase 3)
+  usePostMessage()
 
   // Auto-advance timer logic (D-11 timing)
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -39,7 +43,7 @@ export default function Game() {
   }, [phase, lastOutcome, advance])
 
   return (
-    <div className="relative min-h-screen overflow-hidden">
+    <div className="relative min-h-screen overflow-hidden [contain:content]">
       <AnimatePresence mode="wait">
         {phase === 'idle' && (
           <motion.div
