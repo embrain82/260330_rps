@@ -4,6 +4,7 @@ import { motion } from 'motion/react'
 import { useGameStore } from '@/store/gameStore'
 import { ChoiceButton } from '@/components/ui/ChoiceButton'
 import { ChoiceCard } from '@/components/battle/ChoiceCard'
+import { SuspenseReveal } from '@/components/battle/SuspenseReveal'
 import { RoundIndicator } from '@/components/battle/RoundIndicator'
 import type { Choice, Outcome } from '@/lib/rps'
 
@@ -64,8 +65,12 @@ export function PlayScreen() {
           {/* VS separator */}
           <span className="text-xl font-bold text-white">VS</span>
 
-          {/* AI card */}
-          <ChoiceCard choice={aiChoice} revealed={isRevealed} side="ai" />
+          {/* AI card -- SuspenseReveal during revealing, ChoiceCard otherwise */}
+          {phase === 'revealing' ? (
+            <SuspenseReveal aiChoice={aiChoice} />
+          ) : (
+            <ChoiceCard choice={aiChoice} revealed={isRevealed} side="ai" />
+          )}
         </div>
       </div>
 
