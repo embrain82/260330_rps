@@ -20,10 +20,13 @@
 - ✓ 승리 시 폭죽 이펙트, 패배 시 아쉬움 이펙트 — Phase 2
 - ✓ 모바일 우선 반응형 UI — Phase 2
 - ✓ 생동감 있는 게임 스타일 UI (애니메이션, 풍부한 색감) — Phase 2
+- ✓ 최종 승리 시 쿠폰 지급 화면 (코드/이미지/텍스트 조건부 표시) — Phase 3
+- ✓ iframe 임베딩 (CSP frame-ancestors, CSS containment) — Phase 3
+- ✓ postMessage 양방향 통신 (쿠폰 수신, 승리 이벤트 발행) — Phase 3
 
 ### Active
 
-- [ ] 최종 승리 시 쿠폰 지급 화면
+(All requirements validated)
 
 ### Out of Scope
 
@@ -52,9 +55,9 @@
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| 승률 계산을 클라이언트에서 처리 | 서버 왕복 없이 빠른 게임 플레이. 이벤트용이므로 보안 요구 낮음 | — Pending |
-| CSS 애니메이션 + 이모지/SVG 기반 이펙트 | 별도 게임 엔진 없이 경량으로 생동감 있는 연출 가능 | — Pending |
-| 쿠폰 지급은 API 콜백 인터페이스만 정의 | 실제 쿠폰 시스템은 외부이므로, 게임은 "승리" 이벤트만 발행 | — Pending |
+| 승률 계산을 클라이언트에서 처리 | 서버 왕복 없이 빠른 게임 플레이. 이벤트용이므로 보안 요구 낮음 | ✓ Validated — Phase 1 |
+| CSS 애니메이션 + 이모지/SVG 기반 이펙트 | 별도 게임 엔진 없이 경량으로 생동감 있는 연출 가능 | ✓ Validated — Phase 2 |
+| 쿠폰 지급은 API 콜백 인터페이스만 정의 | 실제 쿠폰 시스템은 외부이므로, 게임은 "승리" 이벤트만 발행 | ✓ Validated — Phase 3 |
 
 ## Evolution
 
@@ -74,4 +77,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-30 after Phase 2 completion*
+*Last updated: 2026-03-30 after Phase 3 completion — all v1.0 phases complete*
