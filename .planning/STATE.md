@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: planning
-stopped_at: Phase 1 context gathered
-last_updated: "2026-03-30T03:45:48.585Z"
-last_activity: 2026-03-30 — Roadmap created, phases derived from requirements
+status: executing
+stopped_at: Completed 01-game-logic-01-01-PLAN.md
+last_updated: "2026-03-30T04:24:50.062Z"
+last_activity: 2026-03-30
 progress:
   total_phases: 3
   completed_phases: 0
-  total_plans: 0
-  completed_plans: 0
+  total_plans: 3
+  completed_plans: 1
   percent: 0
 ---
 
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-30)
 
 **Core value:** "한 판 더" 도전하고 싶은 긴장감 있는 게임 경험 — 참여자가 끝까지 이기면 보상을 받는 구조.
-**Current focus:** Phase 1 — Game Logic
+**Current focus:** Phase 01 — game-logic
 
 ## Current Position
 
-Phase: 1 of 3 (Game Logic)
-Plan: 0 of TBD in current phase
-Status: Ready to plan
-Last activity: 2026-03-30 — Roadmap created, phases derived from requirements
+Phase: 01 (game-logic) — EXECUTING
+Plan: 2 of 3
+Status: Ready to execute
+Last activity: 2026-03-30
 
 Progress: [░░░░░░░░░░] 0%
 
@@ -52,6 +52,7 @@ Progress: [░░░░░░░░░░] 0%
 - Trend: —
 
 *Updated after each plan completion*
+| Phase 01-game-logic P01 | 4 | 2 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -63,6 +64,9 @@ Recent decisions affecting current work:
 - (Init): Client-side probability calculation — no server round-trip, coupon issuance delegated to parent app
 - (Init): CSS animations + SVG/emoji effects — no game engine, no canvas rendering
 - (Init): Coupon issued via postMessage callback — game emits win event only, parent owns coupon logic
+- [Phase 01-game-logic]: Next.js 16.2.1 scaffolded (RESEARCH.md authoritative over CLAUDE.md stack reference)
+- [Phase 01-game-logic]: passWithNoTests: true in vitest.config.ts — Vitest 4 exits code 1 on no files without this flag
+- [Phase 01-game-logic]: BEATS/LOSES_TO as Record<Choice,Choice> lookups; 0-indexed round in GameState to match WIN_RATE_TABLE directly
 
 ### Pending Todos
 
@@ -75,6 +79,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-30T03:45:48.583Z
-Stopped at: Phase 1 context gathered
-Resume file: .planning/phases/01-game-logic/01-CONTEXT.md
+Last session: 2026-03-30T04:24:50.060Z
+Stopped at: Completed 01-game-logic-01-01-PLAN.md
+Resume file: None

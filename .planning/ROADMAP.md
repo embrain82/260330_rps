@@ -22,13 +22,18 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Goal**: The complete game rules are encoded and testable in isolation — AI makes correct probabilistic choices, all phase transitions are enforced, and a session UUID is generated
 **Depends on**: Nothing (first phase)
 **Requirements**: GAME-01, GAME-02, GAME-03, GAME-04, GAME-05, GAME-06, GAME-07, GAME-08
+**Plans**: 3 plans
 **Success Criteria** (what must be TRUE):
   1. A player choice (가위/바위/보) produces a deterministic outcome (win/lose/draw) against an AI choice
   2. The AI's win probability matches the configured curve: round 1 at 85%, round 2 at 75%, round 3 at 65%, round 4 at 55%, round 5 at 30%
   3. A loss immediately ends the session (no further rounds possible)
   4. A draw repeats the same round number without advancing the counter
   5. A session UUID is assigned at game start and persists through the full session
-**Plans**: TBD
+
+Plans:
+- [x] 01-01-PLAN.md — Scaffold Next.js project, install Vitest, define types.ts and constants.ts
+- [ ] 01-02-PLAN.md — Implement determineOutcome (gameRules.ts) and pickAiChoice (aiEngine.ts) with TDD
+- [ ] 01-03-PLAN.md — Implement session.ts (createSession/finalizeSession) and phase gate verification
 
 ### Phase 2: UI & Effects
 **Goal**: The game is fully playable in a browser — all screens render, all animations fire, mobile layout works at 360px+, and the full 5-round experience is completeable
@@ -60,6 +65,6 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Game Logic | 0/TBD | Not started | - |
+| 1. Game Logic | 1/3 | In Progress|  |
 | 2. UI & Effects | 0/TBD | Not started | - |
 | 3. Embed & Integration | 0/TBD | Not started | - |
