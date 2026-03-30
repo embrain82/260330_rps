@@ -24,9 +24,16 @@ function ResultFlash({ outcome }: { outcome: Outcome }) {
       <motion.div
         className="rounded-2xl px-8 py-4"
         style={{ backgroundColor: config.color }}
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: [0, 1.2, 1] }}
-        transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: [0.8, 1.1, 1] }}
+        transition={{
+          opacity: { duration: 0.12, ease: 'linear' },
+          scale: {
+            duration: 0.3,
+            times: [0, 0.65, 1],
+            ease: ['easeOut', 'easeInOut'],
+          },
+        }}
       >
         <span className="text-2xl font-bold text-white">{config.text}</span>
       </motion.div>
