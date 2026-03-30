@@ -12,13 +12,13 @@
 
 ### Validated
 
-(None yet — ship to validate)
+- ✓ 가위/바위/보 선택 후 AI 대결 및 승패 판정 로직 — Phase 1
+- ✓ 판수별 차등 승률 (85%, 75%, 65%, 55%, 30%) — Phase 1
+- ✓ 최대 5판 연승 구조 (지면 즉시 종료, 무승부 반복) — Phase 1
+- ✓ 세션 관리 (UUID, 타임스탬프, 라운드 기록) — Phase 1
 
 ### Active
 
-- [ ] 가위/바위/보 선택 후 AI 대결 및 승패 표시
-- [ ] 판수별 차등 승률 (1판 90~80%, 2판 80~70%, 3판 70~60%, 4판 60~50%, 5판 30%)
-- [ ] 최대 5판 연승 구조 (지면 즉시 종료)
 - [ ] 참여자와 AI의 선택 이미지 동시 표시
 - [ ] 승리 시 폭죽 이펙트, 패배 시 아쉬움 이펙트
 - [ ] 최종 승리 시 쿠폰 지급 화면
@@ -74,4 +74,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-30 after initialization*
+*Last updated: 2026-03-30 after Phase 1 completion*
