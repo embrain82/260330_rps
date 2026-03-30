@@ -52,13 +52,13 @@ Exceptions:
 | Role | Size | Weight | Line Height | Usage |
 |------|------|--------|-------------|-------|
 | Body | 16px | 400 (regular) | 1.5 | Rule description on idle screen (D-04), round indicator labels |
-| Label | 14px | 600 (semibold) | 1.4 | Choice button labels ("가위", "바위", "보"), step dot captions |
+| Label | 14px | 400 (regular) | 1.4 | Choice button labels ("가위", "바위", "보"), step dot captions |
 | Heading | 24px | 700 (bold) | 1.2 | Round result text ("승리!" / "패배..." / "무승부! 다시!") per D-12, D-13 |
-| Display | 36px | 800 (extrabold) | 1.1 | Victory/gameover screen headline ("축하합니다!" / "아쉽네요...") per D-07 |
+| Display | 36px | 700 (bold) | 1.1 | Victory/gameover screen headline ("축하합니다!" / "아쉽네요...") per D-07 |
 
 **Font:** Geist Sans (`--font-geist-sans`). All text uses this single font family. Geist Mono is available but not used in game UI.
 
-**Note on weights:** Geist is a variable font supporting 100-900. The game's arcade aesthetic (D-02) demands bolder weights than typical apps, so 4 weights are used: 400, 600, 700, 800. This is an exception to the standard 2-weight guideline, justified by the game's visual identity requiring clear weight hierarchy across body/label/heading/display roles.
+**Weight strategy:** Exactly 2 weights are used: 400 (regular) and 700 (bold). Label is distinguished from Body by size alone (14px vs 16px), not weight. Display is distinguished from Heading by size alone (36px vs 24px), not weight. The 12px size gap between each pair (14-16 for light roles, 24-36 for bold roles) provides sufficient visual hierarchy without additional weight variation. This keeps the type system tight and the arcade aesthetic punchy -- bold for impact text, regular for everything else.
 
 ---
 
@@ -138,7 +138,7 @@ Applied as CSS custom properties in `:root`. Background transitions with motion 
 | Retry CTA (victory) | "한 번 더 하기" | Secondary button, victory screen (GAME-08) |
 | Player label | "나" | Above player choice card in battle area |
 | AI label | "AI" | Above AI choice card in battle area |
-| VS separator | "VS" | Between player and AI cards in battle area, bold |
+| VS separator | "VS" | Between player and AI cards in battle area, weight 700 |
 | Empty state | N/A | No empty state -- game always starts from idle screen with start button |
 | Error state | N/A | No error state -- all logic is client-side with no network calls in Phase 2 |
 
