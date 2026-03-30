@@ -33,9 +33,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### UI/UX
 
-- [ ] **UI-01**: 모바일 우선 반응형 레이아웃 (최소 터치 타겟 44px)
-- [ ] **UI-02**: 생동감 있는 게임 스타일 UI (색감, 애니메이션, 게임 느낌)
-- [ ] **UI-03**: 3초 이내 초기 로드
+- [x] **UI-01**: 모바일 우선 반응형 레이아웃 (최소 터치 타겟 44px)
+- [x] **UI-02**: 생동감 있는 게임 스타일 UI (색감, 애니메이션, 게임 느낌)
+- [x] **UI-03**: 3초 이내 초기 로드
 
 ## v2 Requirements
 
@@ -87,9 +87,9 @@ Deferred to future release. Tracked but not in current roadmap.
 | INTG-01 | Phase 3 | Pending |
 | INTG-02 | Phase 3 | Pending |
 | INTG-03 | Phase 3 | Pending |
-| UI-01 | Phase 2 | Pending |
-| UI-02 | Phase 2 | Pending |
-| UI-03 | Phase 2 | Pending |
+| UI-01 | Phase 2 | Complete |
+| UI-02 | Phase 2 | Complete |
+| UI-03 | Phase 2 | Complete |
 
 **Coverage:**
 - v1 requirements: 18 total
