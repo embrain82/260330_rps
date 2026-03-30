@@ -1,26 +1,60 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F8F9FA;
+  --foreground: #1A1A2E;
+
+  /* Round background colors per D-03 */
+  --bg-round-0: #4A90D9;
+  --bg-round-1: #2CA5A5;
+  --bg-round-2: #E8B84A;
+  --bg-round-3: #E87E3A;
+  --bg-round-4: #D94040;
+
+  /* Result flash colors per D-12, D-13 */
+  --flash-win: #22C55E;
+  --flash-lose: #EF4444;
+  --flash-draw: #EAB308;
+
+  /* Accent per UI-SPEC */
+  --accent: #FF6B6B;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Shake animation for defeat effect D-10 */
+  --animate-shake: shake 0.3s ease-out;
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+    20%, 40%, 60%, 80% { transform: translateX(4px); }
+  }
+
+  /* Pulse animation for start button idle D-04 */
+  --animate-pulse-gentle: pulse-gentle 2s ease-in-out infinite;
+
+  @keyframes pulse-gentle {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  /* Glow animation for current step dot D-06 */
+  --animate-glow: glow 1.5s ease-in-out infinite;
+
+  @keyframes glow {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
