@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 01-game-logic-01-01-PLAN.md
-last_updated: "2026-03-30T04:24:50.062Z"
+stopped_at: Completed 01-game-logic-01-02-PLAN.md
+last_updated: "2026-03-30T04:29:27.299Z"
 last_activity: 2026-03-30
 progress:
   total_phases: 3
   completed_phases: 0
   total_plans: 3
-  completed_plans: 1
+  completed_plans: 2
   percent: 0
 ---
 
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-03-30)
 ## Current Position
 
 Phase: 01 (game-logic) — EXECUTING
-Plan: 2 of 3
+Plan: 3 of 3
 Status: Ready to execute
 Last activity: 2026-03-30
 
@@ -53,6 +53,7 @@ Progress: [░░░░░░░░░░] 0%
 
 *Updated after each plan completion*
 | Phase 01-game-logic P01 | 4 | 2 tasks | 7 files |
+| Phase 01-game-logic P02 | 2 | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -67,6 +68,9 @@ Recent decisions affecting current work:
 - [Phase 01-game-logic]: Next.js 16.2.1 scaffolded (RESEARCH.md authoritative over CLAUDE.md stack reference)
 - [Phase 01-game-logic]: passWithNoTests: true in vitest.config.ts — Vitest 4 exits code 1 on no files without this flag
 - [Phase 01-game-logic]: BEATS/LOSES_TO as Record<Choice,Choice> lookups; 0-indexed round in GameState to match WIN_RATE_TABLE directly
+- [Phase 01-game-logic]: BEATS[playerChoice] confirmed for player-wins path in pickAiChoice; LOSES_TO[playerChoice] for AI-wins path
+- [Phase 01-game-logic]: Auto-win guard is first statement in pickAiChoice before any Math.random() call — verified by vi.spyOn test
+- [Phase 01-game-logic]: effectiveRate capped at 1.0 via Math.min to prevent rates above 100% on high draw counts
 
 ### Pending Todos
 
@@ -79,6 +83,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-30T04:24:50.060Z
-Stopped at: Completed 01-game-logic-01-01-PLAN.md
+Last session: 2026-03-30T04:29:27.295Z
+Stopped at: Completed 01-game-logic-01-02-PLAN.md
 Resume file: None

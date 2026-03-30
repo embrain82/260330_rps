@@ -10,12 +10,12 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Game Core
 
 - [x] **GAME-01**: 참여자가 가위/바위/보 중 하나를 탭하여 선택할 수 있다
-- [ ] **GAME-02**: AI가 판수별 승률에 따라 가위/바위/보를 선택한다 (1판 85%, 2판 75%, 3판 65%, 4판 55%, 5판 30%)
+- [x] **GAME-02**: AI가 판수별 승률에 따라 가위/바위/보를 선택한다 (1판 85%, 2판 75%, 3판 65%, 4판 55%, 5판 30%)
 - [x] **GAME-03**: 참여자와 AI의 선택을 이미지로 동시에 공개한다
-- [ ] **GAME-04**: 승/패/무승부 결과를 명확하게 표시한다
+- [x] **GAME-04**: 승/패/무승부 결과를 명확하게 표시한다
 - [x] **GAME-05**: 현재 라운드 번호와 전체 진행 상황을 표시한다
-- [ ] **GAME-06**: 이기면 다음 판으로 진행하고, 지면 즉시 게임오버 된다
-- [ ] **GAME-07**: 무승부 시 같은 라운드를 다시 진행한다
+- [x] **GAME-06**: 이기면 다음 판으로 진행하고, 지면 즉시 게임오버 된다
+- [x] **GAME-07**: 무승부 시 같은 라운드를 다시 진행한다
 - [ ] **GAME-08**: 게임오버/승리 화면에서 다시 하기 버튼으로 재시작할 수 있다
 
 ### Effects
@@ -73,12 +73,12 @@ Deferred to future release. Tracked but not in current roadmap.
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | GAME-01 | Phase 1 | Complete |
-| GAME-02 | Phase 1 | Pending |
+| GAME-02 | Phase 1 | Complete |
 | GAME-03 | Phase 1 | Complete |
-| GAME-04 | Phase 1 | Pending |
+| GAME-04 | Phase 1 | Complete |
 | GAME-05 | Phase 1 | Complete |
-| GAME-06 | Phase 1 | Pending |
-| GAME-07 | Phase 1 | Pending |
+| GAME-06 | Phase 1 | Complete |
+| GAME-07 | Phase 1 | Complete |
 | GAME-08 | Phase 1 | Pending |
 | FX-01 | Phase 2 | Pending |
 | FX-02 | Phase 2 | Pending |
