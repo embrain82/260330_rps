@@ -37,6 +37,18 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **UI-02**: 생동감 있는 게임 스타일 UI (색감, 애니메이션, 게임 느낌)
 - [x] **UI-03**: 3초 이내 초기 로드
 
+## v1.1 Requirements (Bug Fixes)
+
+### Effects Fix
+- [ ] **BFIX-01**: 5라운드 전승 시 폭죽(confetti) 이펙트가 화면에 실제로 표시된다
+- [ ] **BFIX-02**: 패배 시 아쉬움(shake/desaturate) 이펙트가 화면에 실제로 표시된다
+
+### Layout Fix
+- [ ] **BFIX-03**: 모바일 브라우저에서 가위바위보 선택 버튼이 주소창에 가려지지 않고 항상 탭 가능하다
+
+### Animation Fix
+- [ ] **BFIX-04**: AI 카드 플립 회전 중에는 결과가 보이지 않고, 회전 완료 시에만 AI 선택이 노출된다
+
 ## v2 Requirements
 
 Deferred to future release. Tracked but not in current roadmap.
@@ -98,4 +110,4 @@ Deferred to future release. Tracked but not in current roadmap.
 
 ---
 *Requirements defined: 2026-03-30*
-*Last updated: 2026-03-30 after roadmap creation*
+*Last updated: 2026-03-31 after v1.1 milestone requirements added*
