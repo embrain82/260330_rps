@@ -20,9 +20,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Effects
 
-- [ ] **FX-01**: 5판 모두 승리 시 폭죽(confetti) 이펙트가 재생된다
-- [ ] **FX-02**: 패배 시 아쉬움 이펙트(흔들림 + 탈색)가 재생된다
-- [ ] **FX-03**: AI 선택 공개 전 1~2초 긴장감 서스펜스 애니메이션이 재생된다
+- [x] **FX-01**: 5판 모두 승리 시 폭죽(confetti) 이펙트가 재생된다
+- [x] **FX-02**: 패배 시 아쉬움 이펙트(흔들림 + 탈색)가 재생된다
+- [x] **FX-03**: AI 선택 공개 전 1~2초 긴장감 서스펜스 애니메이션이 재생된다
 - [x] **FX-04**: 선택 결과 등장 시 공개 애니메이션(0.3~0.6s)이 재생된다
 
 ### Integration
@@ -80,9 +80,9 @@ Deferred to future release. Tracked but not in current roadmap.
 | GAME-06 | Phase 1 | Complete |
 | GAME-07 | Phase 1 | Complete |
 | GAME-08 | Phase 1 | Complete |
-| FX-01 | Phase 2 | Pending |
-| FX-02 | Phase 2 | Pending |
-| FX-03 | Phase 2 | Pending |
+| FX-01 | Phase 2 | Complete |
+| FX-02 | Phase 2 | Complete |
+| FX-03 | Phase 2 | Complete |
 | FX-04 | Phase 2 | Complete |
 | INTG-01 | Phase 3 | Pending |
 | INTG-02 | Phase 3 | Pending |
