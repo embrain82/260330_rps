@@ -56,11 +56,15 @@ Plans:
 **Goal**: The game runs inside an iframe on any parent page, fires a postMessage win event with the session UUID on full-clear, and displays a coupon reward screen
 **Depends on**: Phase 2
 **Requirements**: INTG-01, INTG-02, INTG-03
+**Plans**: 2 plans
 **Success Criteria** (what must be TRUE):
   1. The game loads correctly inside an iframe with no style leakage to the parent page
   2. Winning all 5 rounds displays a coupon code/image victory screen
   3. Winning all 5 rounds fires a postMessage event to the parent window containing the session UUID
-**Plans**: TBD
+
+Plans:
+- [ ] 03-01-PLAN.md — postMessage types, Zustand couponConfig extension, usePostMessage hook, Game.tsx wiring + CSS containment
+- [ ] 03-02-PLAN.md — ResultScreen coupon UI, next.config.ts iframe headers, test-embed.html harness, visual checkpoint
 
 ## Progress
 
@@ -71,4 +75,4 @@ Phases execute in numeric order: 1 → 2 → 3
 |-------|----------------|--------|-----------|
 | 1. Game Logic | 3/3 | Complete |  |
 | 2. UI & Effects | 0/3 | Ready for execution | - |
-| 3. Embed & Integration | 0/TBD | Not started | - |
+| 3. Embed & Integration | 0/2 | Ready for execution | - |
