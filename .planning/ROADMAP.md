@@ -64,7 +64,7 @@ Plans:
 
 Plans:
 - [x] 03-01-PLAN.md — postMessage types, Zustand couponConfig extension, usePostMessage hook, Game.tsx wiring + CSS containment
-- [ ] 03-02-PLAN.md — ResultScreen coupon UI, next.config.ts iframe headers, test-embed.html harness, visual checkpoint
+- [x] 03-02-PLAN.md — ResultScreen coupon UI, next.config.ts iframe headers, test-embed.html harness, visual checkpoint
 
 ## Progress
 
