@@ -39,14 +39,18 @@ Plans:
 **Goal**: The game is fully playable in a browser — all screens render, all animations fire, mobile layout works at 360px+, and the full 5-round experience is completeable
 **Depends on**: Phase 1
 **Requirements**: FX-01, FX-02, FX-03, FX-04, UI-01, UI-02, UI-03
+**Plans**: 3 plans
 **Success Criteria** (what must be TRUE):
   1. Player can tap 가위/바위/보 buttons (44px+ touch targets) and see both their choice and the AI's choice revealed simultaneously with animation
   2. A 1-2 second suspense animation plays before the AI choice is revealed each round
   3. Winning all 5 rounds triggers a confetti/fireworks effect on the victory screen
   4. Losing any round triggers a shake + desaturate effect on the game-over screen
   5. The game is fully playable and visually correct on a 360px-wide mobile viewport
-**Plans**: TBD
-**UI hint**: yes
+
+Plans:
+- [ ] 02-01-PLAN.md — Install dependencies, test infra, Zustand game store, CSS theme, SVG icons
+- [ ] 02-02-PLAN.md — Atomic UI components (ChoiceButton, ChoiceCard, RoundIndicator) and screen components (Idle, Play, Result)
+- [ ] 02-03-PLAN.md — Effects (Confetti, DefeatEffect, SuspenseReveal), Game.tsx shell with AnimatePresence, page.tsx dynamic import, visual checkpoint
 
 ### Phase 3: Embed & Integration
 **Goal**: The game runs inside an iframe on any parent page, fires a postMessage win event with the session UUID on full-clear, and displays a coupon reward screen
@@ -65,6 +69,6 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Game Logic | 2/3 | In Progress|  |
-| 2. UI & Effects | 0/TBD | Not started | - |
+| 1. Game Logic | 3/3 | Complete |  |
+| 2. UI & Effects | 0/3 | Ready for execution | - |
 | 3. Embed & Integration | 0/TBD | Not started | - |
