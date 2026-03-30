@@ -63,7 +63,7 @@ Plans:
   3. Winning all 5 rounds fires a postMessage event to the parent window containing the session UUID
 
 Plans:
-- [ ] 03-01-PLAN.md — postMessage types, Zustand couponConfig extension, usePostMessage hook, Game.tsx wiring + CSS containment
+- [x] 03-01-PLAN.md — postMessage types, Zustand couponConfig extension, usePostMessage hook, Game.tsx wiring + CSS containment
 - [ ] 03-02-PLAN.md — ResultScreen coupon UI, next.config.ts iframe headers, test-embed.html harness, visual checkpoint
 
 ## Progress

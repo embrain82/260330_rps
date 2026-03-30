@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: verifying
-stopped_at: Phase 3 context gathered
-last_updated: "2026-03-30T10:34:01.274Z"
+status: executing
+stopped_at: Completed 03-01-PLAN.md
+last_updated: "2026-03-30T11:10:10.018Z"
 last_activity: 2026-03-30
 progress:
   total_phases: 3
   completed_phases: 2
-  total_plans: 6
-  completed_plans: 6
+  total_plans: 8
+  completed_plans: 7
   percent: 0
 ---
 
@@ -21,13 +21,13 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-30)
 
 **Core value:** "한 판 더" 도전하고 싶은 긴장감 있는 게임 경험 — 참여자가 끝까지 이기면 보상을 받는 구조.
-**Current focus:** Phase 02 — ui-effects
+**Current focus:** Phase 03 — embed-integration
 
 ## Current Position
 
-Phase: 3
-Plan: Not started
-Status: Phase complete — ready for verification
+Phase: 03 (embed-integration) — EXECUTING
+Plan: 2 of 2
+Status: Ready to execute
 Last activity: 2026-03-30
 
 Progress: [░░░░░░░░░░] 0%
@@ -58,6 +58,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 02-ui-effects P01 | 5 | 3 tasks | 11 files |
 | Phase 02-ui-effects P02 | 2 | 2 tasks | 6 files |
 | Phase 02-ui-effects P03 | 16 | 3 tasks | 6 files |
+| Phase 03-embed-integration P01 | 4 | 2 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -88,6 +89,9 @@ Recent decisions affecting current work:
 - [Phase 02-ui-effects]: SuspenseReveal receives aiChoice as prop for reusability, reads only revealDone from store
 - [Phase 02-ui-effects]: Victory and gameover use separate AnimatePresence keys to ensure effects retrigger after retry cycles
 - [Phase 02-ui-effects]: Auto-advance delay: 800ms draw, 1000ms win/lose, matching D-11/D-12/D-13 timing contract
+- [Phase 03-embed-integration]: usePostMessage hook pattern (not store middleware) for postMessage with useEffect lifecycle cleanup
+- [Phase 03-embed-integration]: contain:content (not strict) for CSS containment -- avoids height collapse with min-h-screen
+- [Phase 03-embed-integration]: couponConfig preserved in both retry() and start() via get().couponConfig pattern for iframe session persistence
 
 ### Pending Todos
 
@@ -100,6 +104,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-30T10:34:01.271Z
-Stopped at: Phase 3 context gathered
-Resume file: .planning/phases/03-embed-integration/03-CONTEXT.md
+Last session: 2026-03-30T11:10:10.015Z
+Stopped at: Completed 03-01-PLAN.md
+Resume file: None

@@ -28,8 +28,8 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Integration
 
 - [ ] **INTG-01**: 5판 승리 시 쿠폰 코드/이미지를 표시하는 승리 화면이 나온다
-- [ ] **INTG-02**: 승리 시 postMessage로 부모 창에 이벤트를 발행한다
-- [ ] **INTG-03**: iframe으로 외부 서비스에 임베드할 수 있다 (CSS containment, X-Frame-Options)
+- [x] **INTG-02**: 승리 시 postMessage로 부모 창에 이벤트를 발행한다
+- [x] **INTG-03**: iframe으로 외부 서비스에 임베드할 수 있다 (CSS containment, X-Frame-Options)
 
 ### UI/UX
 
@@ -85,8 +85,8 @@ Deferred to future release. Tracked but not in current roadmap.
 | FX-03 | Phase 2 | Complete |
 | FX-04 | Phase 2 | Complete |
 | INTG-01 | Phase 3 | Pending |
-| INTG-02 | Phase 3 | Pending |
-| INTG-03 | Phase 3 | Pending |
+| INTG-02 | Phase 3 | Complete |
+| INTG-03 | Phase 3 | Complete |
 | UI-01 | Phase 2 | Complete |
 | UI-02 | Phase 2 | Complete |
 | UI-03 | Phase 2 | Complete |
