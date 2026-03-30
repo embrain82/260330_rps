@@ -196,3 +196,38 @@ describe('Zustand game store FSM transitions', () => {
     expect(state.session.startedAt).toBe(startedAt)
   })
 })
+
+describe('couponConfig persistence (Phase 3)', () => {
+  beforeEach(() => {
+    useGameStore.setState(initialState)
+  })
+
+  afterEach(() => {
+    vi.restoreAllMocks()
+  })
+
+  it('couponConfig is null initially', () => {
+    expect(useGameStore.getState().couponConfig).toBeNull()
+  })
+
+  it('setCouponConfig stores the config', () => {
+    useGameStore.getState().setCouponConfig({ couponCode: 'TEST-123' })
+    expect(useGameStore.getState().couponConfig).toEqual({ couponCode: 'TEST-123' })
+  })
+
+  it('retry() preserves couponConfig', () => {
+    useGameStore.getState().setCouponConfig({ couponCode: 'KEEP-ME', couponText: 'Discount' })
+    useGameStore.getState().start()
+    useGameStore.getState().retry()
+    const config = useGameStore.getState().couponConfig
+    expect(config).not.toBeNull()
+    expect(config!.couponCode).toBe('KEEP-ME')
+    expect(config!.couponText).toBe('Discount')
+  })
+
+  it('start() preserves couponConfig', () => {
+    useGameStore.getState().setCouponConfig({ couponCode: 'PERSIST' })
+    useGameStore.getState().start()
+    expect(useGameStore.getState().couponConfig).toEqual({ couponCode: 'PERSIST' })
+  })
+})
