@@ -84,6 +84,10 @@ Deferred to future release. Tracked but not in current roadmap.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
+| BFIX-01 | Phase 4 | Pending |
+| BFIX-02 | Phase 4 | Pending |
+| BFIX-03 | Phase 4 | Pending |
+| BFIX-04 | Phase 4 | Pending |
 | GAME-01 | Phase 1 | Complete |
 | GAME-02 | Phase 1 | Complete |
 | GAME-03 | Phase 1 | Complete |

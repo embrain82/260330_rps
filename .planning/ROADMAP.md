@@ -1,78 +1,41 @@
-# Roadmap: RPS Challenge (가위바위보 챌린지)
+# Roadmap: RPS Challenge v1.1 Bug Fixes
 
 ## Overview
 
-Three phases deliver a complete embeddable promotional mini-game. Phase 1 establishes the core game logic and finite state machine in pure TypeScript — no UI, no React, just the rules and state transitions that everything else depends on. Phase 2 assembles the full playable game: all screen components, animations, effects, and mobile layout. Phase 3 wraps the working game in an embed-safe container and defines the postMessage coupon contract, making it deployable in any parent app via iframe.
+Single phase delivers all 4 bug fixes for the v1.0 game. All fixes are independent CSS/animation/timing issues that don't affect game logic. Phase 4 continues numbering from the v1.0 milestone.
 
 ## Phases
 
 **Phase Numbering:**
-- Integer phases (1, 2, 3): Planned milestone work
-- Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
+- Phases 1-3: v1.0 milestone (complete)
+- Phase 4: v1.1 bug fixes
 
-Decimal phases appear between their surrounding integers in numeric order.
-
-- [ ] **Phase 1: Game Logic** - Core game rules, AI engine, and finite state machine in pure TypeScript
-- [ ] **Phase 2: UI & Effects** - All playable screens, animations, effects, and mobile layout
-- [ ] **Phase 3: Embed & Integration** - iframe embed, postMessage coupon contract, deployment surface
+- [ ] **Phase 4: Bug Fixes** - Fix effects triggering, mobile layout, and card flip animation
 
 ## Phase Details
 
-### Phase 1: Game Logic
-**Goal**: The complete game rules are encoded and testable in isolation — AI makes correct probabilistic choices, all phase transitions are enforced, and a session UUID is generated
-**Depends on**: Nothing (first phase)
-**Requirements**: GAME-01, GAME-02, GAME-03, GAME-04, GAME-05, GAME-06, GAME-07, GAME-08
+### Phase 4: Bug Fixes
+**Goal**: All 4 reported bugs are fixed — effects fire correctly, mobile layout is usable, and card flip hides AI choice during rotation
+**Depends on**: v1.0 (Phases 1-3 complete)
+**Requirements**: BFIX-01, BFIX-02, BFIX-03, BFIX-04
 **Plans**: 3 plans
+**UI hint**: yes
 **Success Criteria** (what must be TRUE):
-  1. A player choice (가위/바위/보) produces a deterministic outcome (win/lose/draw) against an AI choice
-  2. The AI's win probability matches the configured curve: round 1 at 85%, round 2 at 75%, round 3 at 65%, round 4 at 55%, round 5 at 30%
-  3. A loss immediately ends the session (no further rounds possible)
-  4. A draw repeats the same round number without advancing the counter
-  5. A session UUID is assigned at game start and persists through the full session
+  1. 5라운드 전승 시 화면에 폭죽 이펙트가 표시된다
+  2. 패배 시 화면에 shake/desaturate 이펙트가 표시된다
+  3. 모바일 브라우저(360px)에서 선택 버튼 3개가 주소창에 가려지지 않고 전부 보이고 탭 가능하다
+  4. AI 카드 회전 애니메이션 중에는 뒷면(물음표)만 보이고, 회전 완료 후에만 AI 선택이 노출된다
 
 Plans:
-- [x] 01-01-PLAN.md — Scaffold Next.js project, install Vitest, define types.ts and constants.ts
-- [x] 01-02-PLAN.md — Implement determineOutcome (gameRules.ts) and pickAiChoice (aiEngine.ts) with TDD
-- [x] 01-03-PLAN.md — Implement session.ts (createSession/finalizeSession) and phase gate verification
-
-### Phase 2: UI & Effects
-**Goal**: The game is fully playable in a browser — all screens render, all animations fire, mobile layout works at 360px+, and the full 5-round experience is completeable
-**Depends on**: Phase 1
-**Requirements**: FX-01, FX-02, FX-03, FX-04, UI-01, UI-02, UI-03
-**Plans**: 3 plans
-**Success Criteria** (what must be TRUE):
-  1. Player can tap 가위/바위/보 buttons (44px+ touch targets) and see both their choice and the AI's choice revealed simultaneously with animation
-  2. A 1-2 second suspense animation plays before the AI choice is revealed each round
-  3. Winning all 5 rounds triggers a confetti/fireworks effect on the victory screen
-  4. Losing any round triggers a shake + desaturate effect on the game-over screen
-  5. The game is fully playable and visually correct on a 360px-wide mobile viewport
-
-Plans:
-- [x] 02-01-PLAN.md — Install dependencies, test infra, Zustand game store, CSS theme, SVG icons
-- [x] 02-02-PLAN.md — Atomic UI components (ChoiceButton, ChoiceCard, RoundIndicator) and screen components (Idle, Play, Result)
-- [x] 02-03-PLAN.md — Effects (Confetti, DefeatEffect, SuspenseReveal), Game.tsx shell with AnimatePresence, page.tsx dynamic import, visual checkpoint
-
-### Phase 3: Embed & Integration
-**Goal**: The game runs inside an iframe on any parent page, fires a postMessage win event with the session UUID on full-clear, and displays a coupon reward screen
-**Depends on**: Phase 2
-**Requirements**: INTG-01, INTG-02, INTG-03
-**Plans**: 2 plans
-**Success Criteria** (what must be TRUE):
-  1. The game loads correctly inside an iframe with no style leakage to the parent page
-  2. Winning all 5 rounds displays a coupon code/image victory screen
-  3. Winning all 5 rounds fires a postMessage event to the parent window containing the session UUID
-
-Plans:
-- [x] 03-01-PLAN.md — postMessage types, Zustand couponConfig extension, usePostMessage hook, Game.tsx wiring + CSS containment
-- [x] 03-02-PLAN.md — ResultScreen coupon UI, next.config.ts iframe headers, test-embed.html harness, visual checkpoint
+- [ ] 04-01-PLAN.md — Fix confetti and defeat effects timing (BFIX-01, BFIX-02)
+- [ ] 04-02-PLAN.md — Fix mobile viewport layout for choice buttons (BFIX-03)
+- [ ] 04-03-PLAN.md — Fix AI card flip backface visibility (BFIX-04)
 
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3
+Phase 4 plans can execute in parallel (independent fixes).
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Game Logic | 3/3 | Complete |  |
-| 2. UI & Effects | 0/3 | Ready for execution | - |
-| 3. Embed & Integration | 0/2 | Ready for execution | - |
+| 4. Bug Fixes | 0/3 | Ready for execution | - |
