@@ -5,6 +5,7 @@ import { useGameStore } from '@/store/gameStore'
 export function ResultScreen() {
   const phase = useGameStore((s) => s.phase)
   const retry = useGameStore((s) => s.retry)
+  const couponConfig = useGameStore((s) => s.couponConfig)
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-8">
@@ -15,11 +16,31 @@ export function ResultScreen() {
       >
         {phase === 'victory' ? '축하합니다!' : '아쉽네요...'}
       </h1>
-      <p className="text-base text-white mb-12">
-        {phase === 'victory'
-          ? '5판 연속 승리! 쿠폰을 확인하세요'
-          : '다시 도전해보세요!'}
-      </p>
+
+      {phase === 'victory' && couponConfig ? (
+        <div data-testid="coupon-area" className="flex flex-col items-center mb-12">
+          {couponConfig.couponImage && (
+            <img
+              src={couponConfig.couponImage}
+              alt="쿠폰"
+              className="w-full max-w-[280px] rounded-xl mb-4 mx-auto"
+            />
+          )}
+          <p className="text-2xl font-mono font-bold text-white bg-white/10 rounded-xl px-6 py-3 tracking-wider select-all">
+            {couponConfig.couponCode}
+          </p>
+          {couponConfig.couponText && (
+            <p className="text-base text-white/80 mt-2">
+              {couponConfig.couponText}
+            </p>
+          )}
+        </div>
+      ) : phase === 'victory' ? (
+        <p className="text-base text-white mb-12">5판 연속 승리!</p>
+      ) : (
+        <p className="text-base text-white mb-12">다시 도전해보세요!</p>
+      )}
+
       <button
         onClick={retry}
         className="px-8 py-4 min-h-[44px] rounded-2xl bg-[#FF6B6B] text-white text-lg font-bold shadow-lg active:scale-95 transition-transform touch-manipulation"
