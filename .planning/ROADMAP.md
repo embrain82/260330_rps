@@ -49,7 +49,7 @@ Plans:
 
 Plans:
 - [x] 02-01-PLAN.md — Install dependencies, test infra, Zustand game store, CSS theme, SVG icons
-- [ ] 02-02-PLAN.md — Atomic UI components (ChoiceButton, ChoiceCard, RoundIndicator) and screen components (Idle, Play, Result)
+- [x] 02-02-PLAN.md — Atomic UI components (ChoiceButton, ChoiceCard, RoundIndicator) and screen components (Idle, Play, Result)
 - [ ] 02-03-PLAN.md — Effects (Confetti, DefeatEffect, SuspenseReveal), Game.tsx shell with AnimatePresence, page.tsx dynamic import, visual checkpoint
 
 ### Phase 3: Embed & Integration

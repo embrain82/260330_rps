@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 02-01-PLAN.md
-last_updated: "2026-03-30T09:05:03.610Z"
+stopped_at: Completed 02-02-PLAN.md
+last_updated: "2026-03-30T09:09:45.603Z"
 last_activity: 2026-03-30
 progress:
   total_phases: 3
   completed_phases: 1
   total_plans: 6
-  completed_plans: 4
+  completed_plans: 5
   percent: 0
 ---
 
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-03-30)
 ## Current Position
 
 Phase: 02 (ui-effects) — EXECUTING
-Plan: 2 of 3
+Plan: 3 of 3
 Status: Ready to execute
 Last activity: 2026-03-30
 
@@ -56,6 +56,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 01-game-logic P02 | 2 | 2 tasks | 4 files |
 | Phase 01-game-logic P03 | 2 | 2 tasks | 3 files |
 | Phase 02-ui-effects P01 | 5 | 3 tasks | 11 files |
+| Phase 02-ui-effects P02 | 2 | 2 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -80,6 +81,9 @@ Recent decisions affecting current work:
 - [Phase 02-ui-effects]: Zustand store uses atomic set() in select() to prevent null reads between playerChoice/aiChoice updates
 - [Phase 02-ui-effects]: SVG icon components are pure presentational (no use client) -- importable by any component
 - [Phase 02-ui-effects]: Static viewport export used instead of generateViewport since viewport config is static
+- [Phase 02-ui-effects]: ChoiceCard uses backfaceVisibility hidden for true 3D flip (no layout shift during animation)
+- [Phase 02-ui-effects]: ResultFlash is private sub-component inside PlayScreen (tightly coupled to game outcome display)
+- [Phase 02-ui-effects]: Player/AI labels rendered inside ChoiceCard component for self-contained battle card units
 
 ### Pending Todos
 
@@ -92,6 +96,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-30T09:05:03.608Z
-Stopped at: Completed 02-01-PLAN.md
+Last session: 2026-03-30T09:09:45.601Z
+Stopped at: Completed 02-02-PLAN.md
 Resume file: None
