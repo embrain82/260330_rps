@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RPS Challenge - Embed Test Harness</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      padding: 24px;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+    .layout {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .game-panel {
+      flex: 0 0 auto;
+    }
+    .control-panel {
+      flex: 1;
+      min-width: 320px;
+    }
+    iframe {
+      border: 2px solid #ccc;
+      border-radius: 12px;
+      background: #000;
+    }
+    .section {
+      background: #fff;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .section h2 {
+      font-size: 16px;
+      margin-bottom: 12px;
+      color: #444;
+    }
+    .instructions {
+      background: #e8f4fd;
+      border-left: 4px solid #2196F3;
+    }
+    .instructions ol {
+      padding-left: 20px;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #555;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+    input[type="text"]:focus {
+      outline: none;
+      border-color: #2196F3;
+      box-shadow: 0 0 0 2px rgba(33,150,243,0.2);
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .btn-primary {
+      background: #2196F3;
+      color: #fff;
+    }
+    .btn-secondary {
+      background: #eee;
+      color: #333;
+      margin-left: 8px;
+    }
+    .log-panel {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      max-height: 400px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      word-break: break-all;
+      min-height: 120px;
+    }
+    .log-entry-type { color: #569cd6; }
+    .log-entry-time { color: #6a9955; }
+    .log-entry-data { color: #ce9178; }
+    .empty-log {
+      color: #666;
+      font-style: italic;
+    }
+    .status-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ff9800;
+    }
+    .status-dot.ready { background: #4caf50; }
+    .status-text { font-size: 13px; color: #666; }
+  </style>
+</head>
+<body>
+  <h1>RPS Challenge - Embed Test Harness</h1>
+  <p class="subtitle">iframe postMessage integration test page for development and QA</p>
+
+  <div class="layout">
+    <div class="game-panel">
+      <div class="status-bar">
+        <div class="status-dot" id="statusDot"></div>
+        <span class="status-text" id="statusText">Loading iframe...</span>
+      </div>
+      <iframe id="game" src="/" width="375" height="667" title="RPS Challenge Game"></iframe>
+    </div>
+
+    <div class="control-panel">
+      <div class="section instructions">
+        <h2>How to Test</h2>
+        <ol>
+          <li>Click <strong>"Send Coupon Config"</strong> to send coupon data to the game</li>
+          <li>Inside the iframe, click <strong>"도전 시작"</strong> to start</li>
+          <li>Play the game - win all 5 rounds</li>
+          <li>On victory, check the coupon code is displayed</li>
+          <li>Check the log panel below for <strong>RPS_GAME_WIN</strong> event</li>
+        </ol>
+      </div>
+
+      <div class="section">
+        <h2>Coupon Config</h2>
+        <label for="couponCode">Coupon Code</label>
+        <input type="text" id="couponCode" value="TEST-COUPON-2026">
+
+        <label for="couponText">Coupon Text</label>
+        <input type="text" id="couponText" value="10% 할인 쿠폰">
+
+        <label for="couponImage">Coupon Image URL (optional)</label>
+        <input type="text" id="couponImage" value="" placeholder="https://example.com/coupon.png">
+
+        <button class="btn btn-primary" id="sendBtn" disabled onclick="sendCouponConfig()">
+          Send Coupon Config
+        </button>
+      </div>
+
+      <div class="section">
+        <h2>Message Log</h2>
+        <div style="margin-bottom: 8px;">
+          <button class="btn btn-secondary" onclick="clearLog()">Clear Log</button>
+        </div>
+        <div class="log-panel" id="log">
+          <span class="empty-log">Waiting for messages...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var iframe = document.getElementById('game');
+    var sendBtn = document.getElementById('sendBtn');
+    var statusDot = document.getElementById('statusDot');
+    var statusText = document.getElementById('statusText');
+    var logPanel = document.getElementById('log');
+    var isFirstLog = true;
+
+    // Wait for iframe to load before enabling the send button
+    iframe.addEventListener('load', function() {
+      sendBtn.disabled = false;
+      statusDot.classList.add('ready');
+      statusText.textContent = 'iframe loaded - ready';
+    });
+
+    function sendCouponConfig() {
+      var code = document.getElementById('couponCode').value;
+      var text = document.getElementById('couponText').value;
+      var image = document.getElementById('couponImage').value;
+
+      var message = {
+        type: 'RPS_COUPON_CONFIG',
+        couponCode: code,
+      };
+
+      if (text) {
+        message.couponText = text;
+      }
+      if (image) {
+        message.couponImage = image;
+      }
+
+      iframe.contentWindow.postMessage(message, '*');
+
+      appendLog('SENT', 'RPS_COUPON_CONFIG', message);
+    }
+
+    // Listen for messages from the game iframe
+    window.addEventListener('message', function(event) {
+      if (!event.data || typeof event.data !== 'object') return;
+
+      // Only log RPS-related messages
+      if (event.data.type === 'RPS_GAME_WIN') {
+        appendLog('RECEIVED', 'RPS_GAME_WIN', event.data);
+      }
+    });
+
+    function appendLog(direction, type, data) {
+      if (isFirstLog) {
+        logPanel.innerHTML = '';
+        isFirstLog = false;
+      }
+
+      var now = new Date();
+      var timestamp = now.toLocaleTimeString('ko-KR', { hour12: false }) +
+                      '.' + String(now.getMilliseconds()).padStart(3, '0');
+
+      var entry = document.createElement('div');
+      entry.style.marginBottom = '12px';
+      entry.style.borderBottom = '1px solid #333';
+      entry.style.paddingBottom = '12px';
+
+      var header = '<span class="log-entry-time">[' + timestamp + ']</span> ' +
+                   '<span class="log-entry-type">' + direction + ': ' + type + '</span>';
+
+      var body = '<span class="log-entry-data">' +
+                 JSON.stringify(data, null, 2).replace(/</g, '&lt;').replace(/>/g, '&gt;') +
+                 '</span>';
+
+      entry.innerHTML = header + '\n' + body;
+      logPanel.appendChild(entry);
+      logPanel.scrollTop = logPanel.scrollHeight;
+    }
+
+    function clearLog() {
+      logPanel.innerHTML = '<span class="empty-log">Waiting for messages...</span>';
+      isFirstLog = true;
+    }
+  </script>
+</body>
+</html>
