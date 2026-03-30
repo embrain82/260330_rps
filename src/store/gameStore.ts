@@ -9,7 +9,7 @@ import {
   finalizeSession,
   TOTAL_ROUNDS,
 } from '@/lib/rps'
-import type { Choice, Phase, Outcome, SessionPayload } from '@/lib/rps'
+import type { Choice, Phase, Outcome, SessionPayload, CouponConfig } from '@/lib/rps'
 
 interface RoundResult {
   outcome: Outcome
@@ -26,6 +26,7 @@ interface GameStore {
   lastOutcome: Outcome | null
   roundResults: RoundResult[]
   session: SessionPayload
+  couponConfig: CouponConfig | null
 
   // Actions
   start: () => void
@@ -33,6 +34,7 @@ interface GameStore {
   revealDone: () => void
   advance: () => void
   retry: () => void
+  setCouponConfig: (config: CouponConfig) => void
 }
 
 const emptySession: SessionPayload = {
@@ -43,7 +45,7 @@ const emptySession: SessionPayload = {
   totalPlayTimeMs: 0,
 }
 
-export const initialState: Omit<GameStore, 'start' | 'select' | 'revealDone' | 'advance' | 'retry'> = {
+export const initialState: Omit<GameStore, 'start' | 'select' | 'revealDone' | 'advance' | 'retry' | 'setCouponConfig'> = {
   phase: 'idle' as Phase,
   round: 0,
   drawCount: 0,
@@ -52,6 +54,7 @@ export const initialState: Omit<GameStore, 'start' | 'select' | 'revealDone' | '
   lastOutcome: null,
   roundResults: [],
   session: { ...emptySession },
+  couponConfig: null,
 }
 
 export const useGameStore = create<GameStore>((set, get) => ({
@@ -68,6 +71,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
       lastOutcome: null,
       roundResults: [],
       session,
+      couponConfig: get().couponConfig,
     })
   },
 
@@ -179,6 +183,9 @@ export const useGameStore = create<GameStore>((set, get) => ({
       ...initialState,
       session: { ...emptySession },
       roundResults: [],
+      couponConfig: get().couponConfig,
     })
   },
+
+  setCouponConfig: (config: CouponConfig) => set({ couponConfig: config }),
 }))

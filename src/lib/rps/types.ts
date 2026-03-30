@@ -48,6 +48,27 @@ export interface SessionPayload {
   totalPlayTimeMs: number
 }
 
+// Per D-02: Coupon data structure from parent window
+export interface CouponConfig {
+  couponCode: string
+  couponImage?: string
+  couponText?: string
+}
+
+// Per D-01: Inbound message from parent
+export interface RpsCouponConfigMessage {
+  type: 'RPS_COUPON_CONFIG'
+  couponCode: string
+  couponImage?: string
+  couponText?: string
+}
+
+// Per D-06/D-07: Outbound message to parent
+export interface RpsGameWinMessage {
+  type: 'RPS_GAME_WIN'
+  payload: SessionPayload
+}
+
 // Live game state — consumed by Phase 2 useReducer
 export interface GameState {
   phase:        Phase
