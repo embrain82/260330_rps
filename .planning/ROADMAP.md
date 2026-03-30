@@ -33,7 +33,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 Plans:
 - [x] 01-01-PLAN.md — Scaffold Next.js project, install Vitest, define types.ts and constants.ts
 - [x] 01-02-PLAN.md — Implement determineOutcome (gameRules.ts) and pickAiChoice (aiEngine.ts) with TDD
-- [ ] 01-03-PLAN.md — Implement session.ts (createSession/finalizeSession) and phase gate verification
+- [x] 01-03-PLAN.md — Implement session.ts (createSession/finalizeSession) and phase gate verification
 
 ### Phase 2: UI & Effects
 **Goal**: The game is fully playable in a browser — all screens render, all animations fire, mobile layout works at 360px+, and the full 5-round experience is completeable

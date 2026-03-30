@@ -16,7 +16,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **GAME-05**: 현재 라운드 번호와 전체 진행 상황을 표시한다
 - [x] **GAME-06**: 이기면 다음 판으로 진행하고, 지면 즉시 게임오버 된다
 - [x] **GAME-07**: 무승부 시 같은 라운드를 다시 진행한다
-- [ ] **GAME-08**: 게임오버/승리 화면에서 다시 하기 버튼으로 재시작할 수 있다
+- [x] **GAME-08**: 게임오버/승리 화면에서 다시 하기 버튼으로 재시작할 수 있다
 
 ### Effects
 
@@ -79,7 +79,7 @@ Deferred to future release. Tracked but not in current roadmap.
 | GAME-05 | Phase 1 | Complete |
 | GAME-06 | Phase 1 | Complete |
 | GAME-07 | Phase 1 | Complete |
-| GAME-08 | Phase 1 | Pending |
+| GAME-08 | Phase 1 | Complete |
 | FX-01 | Phase 2 | Pending |
 | FX-02 | Phase 2 | Pending |
 | FX-03 | Phase 2 | Pending |
