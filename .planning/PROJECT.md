@@ -26,7 +26,19 @@
 
 ### Active
 
-(All requirements validated)
+- [ ] 승리 시 폭죽(confetti) 이펙트가 실제로 트리거되도록 수정
+- [ ] 패배 시 아쉬움 이펙트가 실제로 트리거되도록 수정
+- [ ] 모바일 하단 주소창에 가위바위보 선택 버튼이 가려지지 않도록 viewport 높이 조정
+- [ ] AI 카드 플립 애니메이션 중 결과가 미리 보이지 않도록 backface-visibility 수정
+
+## Current Milestone: v1.1 Bug Fixes
+
+**Goal:** v1.0 게임의 핵심 버그 3건을 수정하여 의도한 게임 경험을 완성
+
+**Target fixes:**
+- 이펙트 미작동 (승리 폭죽 + 패배 아쉬움)
+- 모바일 선택 버튼 주소창 가림 현상
+- AI 카드 플립 시 결과 사전 노출
 
 ### Out of Scope
 
@@ -77,4 +89,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-30 after Phase 3 completion — all v1.0 phases complete*
+*Last updated: 2026-03-31 after milestone v1.1 initialization — bug fix milestone*
