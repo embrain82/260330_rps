@@ -16,14 +16,14 @@
 - ✓ 판수별 차등 승률 (85%, 75%, 65%, 55%, 30%) — Phase 1
 - ✓ 최대 5판 연승 구조 (지면 즉시 종료, 무승부 반복) — Phase 1
 - ✓ 세션 관리 (UUID, 타임스탬프, 라운드 기록) — Phase 1
+- ✓ 참여자와 AI의 선택 이미지 동시 표시 — Phase 2
+- ✓ 승리 시 폭죽 이펙트, 패배 시 아쉬움 이펙트 — Phase 2
+- ✓ 모바일 우선 반응형 UI — Phase 2
+- ✓ 생동감 있는 게임 스타일 UI (애니메이션, 풍부한 색감) — Phase 2
 
 ### Active
 
-- [ ] 참여자와 AI의 선택 이미지 동시 표시
-- [ ] 승리 시 폭죽 이펙트, 패배 시 아쉬움 이펙트
 - [ ] 최종 승리 시 쿠폰 지급 화면
-- [ ] 모바일 우선 반응형 UI
-- [ ] 생동감 있는 게임 스타일 UI (애니메이션, 풍부한 색감)
 
 ### Out of Scope
 
@@ -74,4 +74,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-30 after Phase 1 completion*
+*Last updated: 2026-03-30 after Phase 2 completion*
