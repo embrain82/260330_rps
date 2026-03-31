@@ -17,26 +17,32 @@ export function ResultScreen() {
         {phase === 'victory' ? '축하합니다!' : '아쉽네요...'}
       </h1>
 
-      {phase === 'victory' && couponConfig ? (
+      {phase === 'victory' ? (
         <div data-testid="coupon-area" className="flex flex-col items-center mb-12">
-          {couponConfig.couponImage && (
+          {couponConfig?.couponImage && (
             <img
               src={couponConfig.couponImage}
               alt="쿠폰"
               className="w-full max-w-[280px] rounded-xl mb-4 mx-auto"
             />
           )}
-          <p className="text-2xl font-mono font-bold text-white bg-white/10 rounded-xl px-6 py-3 tracking-wider select-all">
-            {couponConfig.couponCode}
+          <p className="text-lg font-bold text-[#FFD700] drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)] mb-3">
+            5판 연속 승리!
           </p>
-          {couponConfig.couponText && (
+          {couponConfig?.couponCode && (
+            <p className="text-2xl font-mono font-bold text-white bg-white/10 rounded-xl px-6 py-3 tracking-wider select-all">
+              {couponConfig.couponCode}
+            </p>
+          )}
+          {couponConfig?.couponText && (
             <p className="text-base text-white/80 mt-2">
               {couponConfig.couponText}
             </p>
           )}
+          {!couponConfig && (
+            <p className="text-sm text-white/60 mt-1">쿠폰은 이벤트 페이지에서 확인하세요</p>
+          )}
         </div>
-      ) : phase === 'victory' ? (
-        <p className="text-base text-white mb-12">5판 연속 승리!</p>
       ) : (
         <p className="text-base text-white mb-12">다시 도전해보세요!</p>
       )}
