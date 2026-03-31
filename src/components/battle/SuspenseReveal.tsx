@@ -36,10 +36,10 @@ export function SuspenseReveal({ aiChoice }: SuspenseRevealProps) {
         { rotateY: [720, 900] },
         { duration: 0.6, ease: 'easeOut' }
       )
-      // Phase 3: Final reveal snap (0.3s) -- spring into place
+      // Phase 3: Final reveal snap (0.3s) -- land on front face (1080 = 3 full rotations)
       await animate(
         scope.current,
-        { rotateY: 0, scale: [0.8, 1.1, 1] },
+        { rotateY: 1080, scale: [0.8, 1.1, 1] },
         { duration: 0.3, ease: 'easeOut' }
       )
       // Signal store that reveal animation is done
@@ -57,9 +57,34 @@ export function SuspenseReveal({ aiChoice }: SuspenseRevealProps) {
       <div style={{ perspective: 600 }}>
         <div
           ref={scope}
-          className="flex items-center justify-center w-28 h-36 rounded-2xl bg-white shadow-xl"
+          data-testid="suspense-card"
+          className="relative w-28 h-36 rounded-2xl shadow-xl"
+          style={{ transformStyle: 'preserve-3d' }}
         >
-          {Icon && <Icon className="w-16 h-16" />}
+          {/* Front face: AI choice (visible at rotateY 0, 360, 720, 1080) */}
+          <div
+            data-testid="card-front"
+            className="absolute inset-0 flex items-center justify-center rounded-2xl bg-white"
+            style={{ backfaceVisibility: 'hidden' }}
+          >
+            {Icon && <Icon className="w-16 h-16" />}
+          </div>
+
+          {/* Back face: mystery icons (visible at rotateY 180, 540, 900) */}
+          <div
+            data-testid="card-back"
+            className="absolute inset-0 flex items-center justify-center rounded-2xl bg-[#FF6B6B]"
+            style={{
+              backfaceVisibility: 'hidden',
+              transform: 'rotateY(180deg)',
+            }}
+          >
+            <div className="flex gap-1">
+              <RockIcon className="w-6 h-6 text-white/80" />
+              <PaperIcon className="w-6 h-6 text-white/80" />
+              <ScissorsIcon className="w-6 h-6 text-white/80" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
