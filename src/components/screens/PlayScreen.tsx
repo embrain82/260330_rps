@@ -55,7 +55,7 @@ export function PlayScreen() {
 
   return (
     <div
-      className="relative flex flex-col min-h-screen transition-colors duration-500"
+      className="relative flex flex-col min-h-dvh transition-colors duration-500"
       style={{ backgroundColor: ROUND_BG_COLORS[round] }}
     >
       {/* Top section: round indicator */}
@@ -87,7 +87,7 @@ export function PlayScreen() {
       )}
 
       {/* Bottom bar: choice buttons */}
-      <div className="fixed bottom-0 left-0 right-0 pb-[env(safe-area-inset-bottom)] bg-black/10 backdrop-blur-sm px-4 pt-4 pb-4">
+      <div className="fixed bottom-0 left-0 right-0 pb-[max(1rem,env(safe-area-inset-bottom))] bg-black/10 backdrop-blur-sm px-4 pt-4">
         <div className="grid grid-cols-3 gap-2 max-w-md mx-auto">
           {(['scissors', 'rock', 'paper'] as Choice[]).map((c) => (
             <ChoiceButton
