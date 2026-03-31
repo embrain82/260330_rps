@@ -8,7 +8,7 @@ export function ResultScreen() {
   const couponConfig = useGameStore((s) => s.couponConfig)
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-8">
+    <div className="flex flex-col items-center justify-center min-h-dvh px-8">
       <h1
         className={`text-4xl font-bold mb-4 ${
           phase === 'victory' ? 'text-[#FFD700]' : 'text-white'

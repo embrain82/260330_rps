@@ -55,7 +55,7 @@ export function PlayScreen() {
 
   return (
     <div
-      className="relative flex flex-col min-h-screen transition-colors duration-500"
+      className="relative flex flex-col min-h-dvh transition-colors duration-500"
       style={{ backgroundColor: ROUND_BG_COLORS[round] }}
     >
       {/* Top section: round indicator */}

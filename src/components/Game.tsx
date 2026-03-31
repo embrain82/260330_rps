@@ -43,7 +43,7 @@ export default function Game() {
   }, [phase, lastOutcome, advance])
 
   return (
-    <div className="relative min-h-screen overflow-hidden [contain:content]">
+    <div className="relative min-h-dvh overflow-hidden [contain:content]">
       <AnimatePresence mode="wait">
         {phase === 'idle' && (
           <motion.div
