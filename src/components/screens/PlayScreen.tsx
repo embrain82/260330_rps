@@ -6,6 +6,7 @@ import { ChoiceButton } from '@/components/ui/ChoiceButton'
 import { ChoiceCard } from '@/components/battle/ChoiceCard'
 import { SuspenseReveal } from '@/components/battle/SuspenseReveal'
 import { RoundIndicator } from '@/components/battle/RoundIndicator'
+import { WIN_RATE_TABLE } from '@/lib/rps/constants'
 import type { Choice, Outcome } from '@/lib/rps'
 
 const ROUND_BG_COLORS = ['#4A90D9', '#2CA5A5', '#E8B84A', '#E87E3A', '#D94040'] as const
@@ -64,7 +65,7 @@ export function PlayScreen() {
       </div>
 
       {/* Middle section: battle area — pb-24 offsets the fixed bottom bar for true visual centering */}
-      <div className="flex-1 flex items-center justify-center px-4 pb-24">
+      <div className="flex-1 flex flex-col items-center justify-center px-4 pb-24">
         <div className="flex items-center gap-4">
           {/* Player card */}
           <ChoiceCard choice={playerChoice} revealed={playerChoice !== null} side="player" />
@@ -79,6 +80,17 @@ export function PlayScreen() {
             <ChoiceCard choice={aiChoice} revealed={isRevealed} side="ai" />
           )}
         </div>
+
+        {/* Win probability indicator */}
+        <motion.p
+          key={round}
+          className="mt-4 text-xs text-white/60 font-medium tracking-wide"
+          initial={{ opacity: 0, y: 4 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+        >
+          승리확률 {Math.round(WIN_RATE_TABLE[round] * 100)}%
+        </motion.p>
       </div>
 
       {/* Result text overlay (when phase === 'result') */}
