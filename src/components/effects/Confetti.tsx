@@ -13,6 +13,11 @@ export function VictoryConfetti() {
     if (phase === 'victory' && !hasFired.current) {
       hasFired.current = true
 
+      // Delay all bursts so confetti fires AFTER the parent motion.div
+      // entry animation completes (spring duration: 0.5s = 500ms).
+      // Without this, particles render while the screen is still at opacity 0.
+      const ENTRY_DELAY = 500
+
       const defaults = {
         particleCount: 50,
         spread: 80,
@@ -23,13 +28,17 @@ export function VictoryConfetti() {
         useWorker: true,
       }
 
-      // Burst 1: center (0ms)
-      confetti({
-        ...defaults,
-        origin: { x: 0.5, y: 0.7 },
-      })
+      // Burst 1: center (ENTRY_DELAY + 0ms)
+      timerIds.current.push(
+        setTimeout(() => {
+          confetti({
+            ...defaults,
+            origin: { x: 0.5, y: 0.7 },
+          })
+        }, ENTRY_DELAY)
+      )
 
-      // Burst 2: left (400ms)
+      // Burst 2: left (ENTRY_DELAY + 400ms)
       timerIds.current.push(
         setTimeout(() => {
           confetti({
@@ -37,10 +46,10 @@ export function VictoryConfetti() {
             origin: { x: 0.1, y: 0.8 },
             angle: 60,
           })
-        }, 400)
+        }, ENTRY_DELAY + 400)
       )
 
-      // Burst 3: right (800ms)
+      // Burst 3: right (ENTRY_DELAY + 800ms)
       timerIds.current.push(
         setTimeout(() => {
           confetti({
@@ -48,10 +57,10 @@ export function VictoryConfetti() {
             origin: { x: 0.9, y: 0.8 },
             angle: 120,
           })
-        }, 800)
+        }, ENTRY_DELAY + 800)
       )
 
-      // Burst 4: center wave 2 (1200ms)
+      // Burst 4: center wave 2 (ENTRY_DELAY + 1200ms)
       timerIds.current.push(
         setTimeout(() => {
           confetti({
@@ -59,7 +68,7 @@ export function VictoryConfetti() {
             particleCount: 80,
             origin: { x: 0.5, y: 0.5 },
           })
-        }, 1200)
+        }, ENTRY_DELAY + 1200)
       )
     }
 
