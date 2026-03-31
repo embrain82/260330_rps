@@ -11,7 +11,7 @@ export function ResultScreen() {
     <div className="flex flex-col items-center justify-center min-h-dvh px-8">
       <h1
         className={`text-4xl font-bold mb-4 ${
-          phase === 'victory' ? 'text-[#FFD700]' : 'text-white'
+          phase === 'victory' ? 'text-[#FFD700]' : 'text-[#FF6B6B] drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]'
         }`}
       >
         {phase === 'victory' ? '축하합니다!' : '아쉽네요...'}

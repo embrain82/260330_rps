@@ -63,8 +63,8 @@ export function PlayScreen() {
         <RoundIndicator currentRound={round} completedRounds={completedRounds} />
       </div>
 
-      {/* Middle section: battle area */}
-      <div className="flex-1 flex items-center justify-center px-4">
+      {/* Middle section: battle area — pb-24 offsets the fixed bottom bar for true visual centering */}
+      <div className="flex-1 flex items-center justify-center px-4 pb-24">
         <div className="flex items-center gap-4">
           {/* Player card */}
           <ChoiceCard choice={playerChoice} revealed={playerChoice !== null} side="player" />
