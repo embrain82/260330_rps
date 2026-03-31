@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 03-01-PLAN.md
-last_updated: "2026-03-30T13:20:18.523Z"
+stopped_at: Completed 04-02-PLAN.md
+last_updated: "2026-03-31T00:19:49.904Z"
 last_activity: 2026-03-30
 progress:
   total_phases: 3
@@ -59,6 +59,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 02-ui-effects P02 | 2 | 2 tasks | 6 files |
 | Phase 02-ui-effects P03 | 16 | 3 tasks | 6 files |
 | Phase 03-embed-integration P01 | 4 | 2 tasks | 6 files |
+| Phase 04-bug-fixes P02 | 2 | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -92,6 +93,8 @@ Recent decisions affecting current work:
 - [Phase 03-embed-integration]: usePostMessage hook pattern (not store middleware) for postMessage with useEffect lifecycle cleanup
 - [Phase 03-embed-integration]: contain:content (not strict) for CSS containment -- avoids height collapse with min-h-screen
 - [Phase 03-embed-integration]: couponConfig preserved in both retry() and start() via get().couponConfig pattern for iframe session persistence
+- [Phase 04-bug-fixes]: dvh (dynamic viewport height) used instead of vh -- no fallback needed for 95%+ browser coverage
+- [Phase 04-bug-fixes]: CSS max() combines minimum padding with safe-area-inset in single pb- class to avoid Tailwind last-wins conflict
 
 ### Pending Todos
 
@@ -104,6 +107,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-30T11:10:10.015Z
-Stopped at: Completed 03-01-PLAN.md
+Last session: 2026-03-31T00:19:49.902Z
+Stopped at: Completed 04-02-PLAN.md
 Resume file: None
