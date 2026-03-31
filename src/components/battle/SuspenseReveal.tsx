@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useAnimate } from 'motion/react'
 import { useGameStore } from '@/store/gameStore'
 import { RockIcon } from '@/components/svg/Rock'
@@ -14,6 +14,18 @@ const CHOICE_ICONS: Record<Choice, React.ComponentType<{ className?: string }>> 
   scissors: ScissorsIcon,
 }
 
+function MysteryIcons({ bg }: { bg: string }) {
+  return (
+    <div className={`absolute inset-0 flex items-center justify-center rounded-2xl ${bg}`}>
+      <div className="flex gap-1">
+        <RockIcon className="w-6 h-6 text-white/80" />
+        <PaperIcon className="w-6 h-6 text-white/80" />
+        <ScissorsIcon className="w-6 h-6 text-white/80" />
+      </div>
+    </div>
+  )
+}
+
 interface SuspenseRevealProps {
   aiChoice: Choice | null
 }
@@ -21,6 +33,7 @@ interface SuspenseRevealProps {
 export function SuspenseReveal({ aiChoice }: SuspenseRevealProps) {
   const revealDone = useGameStore((s) => s.revealDone)
   const [scope, animate] = useAnimate()
+  const [isRevealed, setIsRevealed] = useState(false)
 
   useEffect(() => {
     const runSuspense = async () => {
@@ -42,6 +55,8 @@ export function SuspenseReveal({ aiChoice }: SuspenseRevealProps) {
         { rotateY: 1080, scale: [0.8, 1.1, 1] },
         { duration: 0.3, ease: 'easeOut' }
       )
+      // Swap content to AI choice AFTER animation completes
+      setIsRevealed(true)
       // Signal store that reveal animation is done
       revealDone()
     }
@@ -61,29 +76,31 @@ export function SuspenseReveal({ aiChoice }: SuspenseRevealProps) {
           className="relative w-28 h-36 rounded-2xl shadow-xl"
           style={{ transformStyle: 'preserve-3d' }}
         >
-          {/* Front face: AI choice (visible at rotateY 0, 360, 720, 1080) */}
+          {/* Front face: mystery during rotation, AI choice after reveal */}
           <div
             data-testid="card-front"
-            className="absolute inset-0 flex items-center justify-center rounded-2xl bg-white"
+            className="absolute inset-0 flex items-center justify-center rounded-2xl"
             style={{ backfaceVisibility: 'hidden' }}
           >
-            {Icon && <Icon className="w-16 h-16" />}
+            {isRevealed && Icon ? (
+              <div className="absolute inset-0 flex items-center justify-center rounded-2xl bg-white">
+                <Icon className="w-16 h-16" />
+              </div>
+            ) : (
+              <MysteryIcons bg="bg-[#FF6B6B]" />
+            )}
           </div>
 
-          {/* Back face: mystery icons (visible at rotateY 180, 540, 900) */}
+          {/* Back face: always mystery icons */}
           <div
             data-testid="card-back"
-            className="absolute inset-0 flex items-center justify-center rounded-2xl bg-[#FF6B6B]"
+            className="absolute inset-0 rounded-2xl"
             style={{
               backfaceVisibility: 'hidden',
               transform: 'rotateY(180deg)',
             }}
           >
-            <div className="flex gap-1">
-              <RockIcon className="w-6 h-6 text-white/80" />
-              <PaperIcon className="w-6 h-6 text-white/80" />
-              <ScissorsIcon className="w-6 h-6 text-white/80" />
-            </div>
+            <MysteryIcons bg="bg-[#FF6B6B]" />
           </div>
         </div>
       </div>
