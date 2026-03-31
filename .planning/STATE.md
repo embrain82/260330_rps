@@ -1,16 +1,16 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.1
+milestone: v1.0
 milestone_name: milestone
-status: Defining requirements
-stopped_at: Phase 4 context gathered
-last_updated: "2026-03-30T23:53:37.353Z"
-last_activity: 2026-03-31 — Milestone v1.1 started
+status: executing
+stopped_at: Completed 04-01-PLAN.md
+last_updated: "2026-03-31T00:20:10.777Z"
+last_activity: 2026-03-30
 progress:
-  total_phases: 1
-  completed_phases: 0
-  total_plans: 0
-  completed_plans: 0
+  total_phases: 3
+  completed_phases: 3
+  total_plans: 8
+  completed_plans: 8
   percent: 0
 ---
 
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-30)
 
 **Core value:** "한 판 더" 도전하고 싶은 긴장감 있는 게임 경험 — 참여자가 끝까지 이기면 보상을 받는 구조.
-**Current focus:** Phase 03 — embed-integration
+**Current focus:** Phase 04 — bug-fixes
 
 ## Current Position
 
-Phase: Not started (defining requirements)
-Plan: —
-Status: Defining requirements
-Last activity: 2026-03-31 — Milestone v1.1 started
+Phase: 04
+Plan: 1 of 1 (complete)
+Status: Phase 04 complete
+Last activity: 2026-03-31
 
-Progress: [░░░░░░░░░░] 0%
+Progress: [██████████] 100%
 
 ## Performance Metrics
 
@@ -59,6 +59,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 02-ui-effects P02 | 2 | 2 tasks | 6 files |
 | Phase 02-ui-effects P03 | 16 | 3 tasks | 6 files |
 | Phase 03-embed-integration P01 | 4 | 2 tasks | 6 files |
+| Phase 04-bug-fixes P01 | 2 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -92,6 +93,8 @@ Recent decisions affecting current work:
 - [Phase 03-embed-integration]: usePostMessage hook pattern (not store middleware) for postMessage with useEffect lifecycle cleanup
 - [Phase 03-embed-integration]: contain:content (not strict) for CSS containment -- avoids height collapse with min-h-screen
 - [Phase 03-embed-integration]: couponConfig preserved in both retry() and start() via get().couponConfig pattern for iframe session persistence
+- [Phase 04-bug-fixes]: ENTRY_DELAY=500ms constant in Confetti.tsx documents synchronization contract with parent motion.div spring transition
+- [Phase 04-bug-fixes]: motion animate() delay parameter used for DefeatEffect (idiomatic motion v12) instead of setTimeout
 
 ### Pending Todos
 
@@ -104,6 +107,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-30T23:53:37.351Z
-Stopped at: Phase 4 context gathered
-Resume file: .planning/phases/04-bug-fixes/04-CONTEXT.md
+Last session: 2026-03-31T00:20:10.775Z
+Stopped at: Completed 04-01-PLAN.md
+Resume file: None

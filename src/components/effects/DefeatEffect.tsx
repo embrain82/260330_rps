@@ -16,10 +16,12 @@ export function DefeatEffect({ children }: DefeatEffectProps) {
     if (phase === 'gameover') {
       const runDefeat = async () => {
         // Step 1: Shake (0.3s) per UI-SPEC Defeat Effect
+        // delay: 0.5 syncs with parent motion.div entry animation (spring duration 0.5s)
+        // so shake starts after the screen is fully opaque
         await animate(
           scope.current,
           { x: [0, -4, 4, -4, 4, -2, 2, 0] },
-          { duration: 0.3, ease: 'easeOut' }
+          { duration: 0.3, ease: 'easeOut', delay: 0.5 }
         )
         // Step 2: Desaturate (0.5s) per UI-SPEC Defeat Effect
         await animate(
